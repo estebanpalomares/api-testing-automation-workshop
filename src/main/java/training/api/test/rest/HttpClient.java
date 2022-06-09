@@ -24,6 +24,10 @@ public class HttpClient {
         return doRequest(prepareRequest(requestSpecification),GET,url);
     }
 
+    public static Response post(String url, RequestSpecification requestSpecification){
+        return doRequest(prepareRequest(requestSpecification),POST,url);
+    }
+
     private static RequestSpecification prepareRequest(){return given().header("Accept","application/json");}
 
     private static RequestSpecification prepareRequest(RequestSpecification requestSpecification){
