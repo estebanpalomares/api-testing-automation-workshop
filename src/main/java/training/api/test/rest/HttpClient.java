@@ -28,6 +28,18 @@ public class HttpClient {
         return doRequest(prepareRequest(requestSpecification),POST,url);
     }
 
+    public static Response put(String url, RequestSpecification requestSpecification){
+        return doRequest(prepareRequest(requestSpecification),PUT,url);
+    }
+
+    public static Response patch(String url, RequestSpecification requestSpecification){
+        return doRequest(prepareRequest(requestSpecification),PATCH,url);
+    }
+
+    public static Response delete(String url, RequestSpecification requestSpecification){
+        return doRequest(prepareRequest(requestSpecification),DELETE,url);
+    }
+
     private static RequestSpecification prepareRequest(){return given().header("Accept","application/json");}
 
     private static RequestSpecification prepareRequest(RequestSpecification requestSpecification){

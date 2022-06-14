@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(features="src/test/resources/features",
                     plugin = {"pretty",
                             "html:target/cucumber/reports/report.html"},
-                tags = {"@GET_METHOD"},
+                tags = {"@API_METHODS"},
                 strict = true)
 public class TestRunner extends AbstractTestNGCucumberTests {
 }

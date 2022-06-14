@@ -40,4 +40,25 @@ public class APIMethodsStepDefinition {
         this.response.then().statusCode(200);
         this.bodyResponse = this.response.prettyPrint();
     }
+
+    @When("I PUT the endpoint")
+    public void iPUTTheEndpoint() {
+        this.response = this.anythingController.usePUTMethodOnAnythingURL(this.bodyExample);
+        this.response.then().statusCode(200);
+        this.bodyResponse = this.response.prettyPrint();
+    }
+
+    @When("I PATCH the endpoint")
+    public void iPATCHTheEndpoint() {
+        this.response = this.anythingController.usePATCHMethodOnAnythingURL(this.bodyExample);
+        this.response.then().statusCode(200);
+        this.bodyResponse = this.response.prettyPrint();
+    }
+
+    @When("I DELETE the endpoint")
+    public void iDELETETheEndpoint() {
+        this.response = this.anythingController.useDELETEMethodOnAnythingURL(this.bodyExample);
+        this.response.then().statusCode(200);
+        this.bodyResponse = this.response.prettyPrint();
+    }
 }

@@ -15,4 +15,10 @@ public class AnythingService {
     public Response getMethodToAnything(BodyExample bodyExample){return this.anythingRequest.getMethod(bodyExample);}
 
     public Response postMethodToAnything(BodyExample bodyExample){return this.anythingRequest.postMethod(bodyExample);}
+
+    public Response putMethodToAnything(BodyExample bodyExample){return this.anythingRequest.putMethod(bodyExample);}
+
+    public Response patchMethodToAnything(BodyExample bodyExample){return this.anythingRequest.patchMethod(bodyExample);}
+
+    public Response deleteMethodToAnything(BodyExample bodyExample){return this.anythingRequest.deleteMethod(bodyExample);}
 }
