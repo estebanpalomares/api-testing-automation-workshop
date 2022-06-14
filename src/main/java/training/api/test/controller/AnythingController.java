@@ -13,4 +13,10 @@ public class AnythingController {
     public Response useGETMethodOnAnythingURL(BodyExample bodyExample){return this.anythingService.getMethodToAnything(bodyExample);}
 
     public Response usePOSTMethodOnAnythingURL(BodyExample bodyExample){return this.anythingService.postMethodToAnything(bodyExample);}
+
+    public Response usePUTMethodOnAnythingURL(BodyExample bodyExample){return this.anythingService.putMethodToAnything(bodyExample);}
+
+    public Response usePATCHMethodOnAnythingURL(BodyExample bodyExample){return this.anythingService.patchMethodToAnything(bodyExample);}
+
+    public Response useDELETEMethodOnAnythingURL(BodyExample bodyExample){return this.anythingService.deleteMethodToAnything(bodyExample);}
 }

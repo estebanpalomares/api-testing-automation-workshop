@@ -23,4 +23,19 @@ public class AnythingRequest extends BaseRequest{
 
         return HttpClient.post(reqConsumerUrl,requestSpecBuilder.build());
     }
+
+    public Response putMethod (BodyExample bodyExample){
+        requestSpecBuilder.setBody(bodyExample);
+        return HttpClient.put(reqConsumerUrl,requestSpecBuilder.build());
+    }
+
+    public Response patchMethod (BodyExample bodyExample){
+        requestSpecBuilder.setBody(bodyExample);
+        return HttpClient.patch(reqConsumerUrl,requestSpecBuilder.build());
+    }
+
+    public Response deleteMethod (BodyExample bodyExample){
+        requestSpecBuilder.setBody(bodyExample);
+        return HttpClient.delete(reqConsumerUrl,requestSpecBuilder.build());
+    }
 }
