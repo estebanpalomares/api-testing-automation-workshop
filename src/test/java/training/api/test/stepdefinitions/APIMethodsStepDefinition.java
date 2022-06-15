@@ -20,32 +20,11 @@ public class APIMethodsStepDefinition {
         this.bodyExample = this.anythingController.createBodyExample("Jaime","Palomares",34);
     }
 
-    @When("I GET the endpoint")
-    public void iGETTheEndpoint() {
-        this.response = this.anythingController.useGETMethodOnAnythingURL(this.bodyExample);
-        this.response.then().statusCode(200);
-        this.bodyResponse = this.response.prettyPrint();
-    }
-
     @Then("I verify the response")
     public void iVerifyTheResponse() {
         Assert.assertTrue(this.bodyResponse.contains("Jaime"));
         Assert.assertTrue(this.bodyResponse.contains("Palomares"));
         Assert.assertTrue(this.bodyResponse.contains("34"));
-    }
-
-    @When("I POST the endpoint")
-    public void iPOSTTheEndpoint() {
-        this.response = this.anythingController.usePOSTMethodOnAnythingURL(this.bodyExample);
-        this.response.then().statusCode(200);
-        this.bodyResponse = this.response.prettyPrint();
-    }
-
-    @When("I PUT the endpoint")
-    public void iPUTTheEndpoint() {
-        this.response = this.anythingController.usePUTMethodOnAnythingURL(this.bodyExample);
-        this.response.then().statusCode(200);
-        this.bodyResponse = this.response.prettyPrint();
     }
 
     @When("I PATCH the endpoint")
@@ -60,5 +39,39 @@ public class APIMethodsStepDefinition {
         this.response = this.anythingController.useDELETEMethodOnAnythingURL(this.bodyExample);
         this.response.then().statusCode(200);
         this.bodyResponse = this.response.prettyPrint();
+    }
+
+    @When("I {string} the endpoint")
+    public void iTheEndpoint(String method) {
+
+        switch (method){
+
+            case "GET":
+                this.response = this.anythingController.useGETMethodOnAnythingURL(this.bodyExample);
+                break;
+            case "POST":
+                this.response = this.anythingController.usePOSTMethodOnAnythingURL(this.bodyExample);
+                break;
+            case "PUT":
+                this.response = this.anythingController.usePUTMethodOnAnythingURL(this.bodyExample);
+                break;
+            default:
+                Assert.fail("The method: "+method+" does not exist.");
+                break;
+        }
+        this.response.then().statusCode(200);
+        this.bodyResponse = this.response.prettyPrint();
+    }
+
+    @Given("I have a Body Request with {string} name, {string} last name and {int} age")
+    public void iHaveABodyRequestWithNameLastNameAndAge(String name, String lastName, int age) {
+        this.bodyExample = this.anythingController.createBodyExample(name,lastName,age);
+    }
+
+    @Then("I verify the response the name {string}, last name {string} and {int} age")
+    public void iVerifyTheResponseTheNameLastNameAndAge(String name, String lastName, Integer age) {
+        Assert.assertTrue(this.bodyResponse.contains(name));
+        Assert.assertTrue(this.bodyResponse.contains(lastName));
+        Assert.assertTrue(this.bodyResponse.contains(age.toString()));
     }
 }

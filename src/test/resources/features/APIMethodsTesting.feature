@@ -6,19 +6,19 @@
     @GET_METHOD
     Scenario: Test GET method
       Given I have a Body Request
-      When I GET the endpoint
+      When I "GET" the endpoint
       Then I verify the response
 
     @POST_METHOD
     Scenario: Test POST method
       Given I have a Body Request
-      When I POST the endpoint
+      When I "POST" the endpoint
       Then I verify the response
 
     @PUT_METHOD
     Scenario: Test PUT method
       Given I have a Body Request
-      When I PUT the endpoint
+      When I "PUT" the endpoint
       Then I verify the response
 
     @PATCH_METHOD
@@ -32,4 +32,3 @@
       Given I have a Body Request
       When I DELETE the endpoint
       Then I verify the response
-      
