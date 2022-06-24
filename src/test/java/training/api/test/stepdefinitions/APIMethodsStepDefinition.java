@@ -55,6 +55,12 @@ public class APIMethodsStepDefinition {
             case "PUT":
                 this.response = this.anythingController.usePUTMethodOnAnythingURL(this.bodyExample);
                 break;
+            case "PATCH":
+                this.response = this.anythingController.usePATCHMethodOnAnythingURL(this.bodyExample);
+                break;
+            case "DELETE":
+                this.response = this.anythingController.useDELETEMethodOnAnythingURL(this.bodyExample);
+                break;
             default:
                 Assert.fail("The method: "+method+" does not exist.");
                 break;

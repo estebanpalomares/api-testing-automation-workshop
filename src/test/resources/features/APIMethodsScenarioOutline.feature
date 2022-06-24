@@ -13,3 +13,5 @@
       | GET       | Jaime     | Palomares |
       | POST      | Cristian  | Ganan     |
       | PUT       | Laura     | Castro    |
+      | PATCH     | Duvii     | Ganan     |
+      | DELETE    | Katerine  | Villamizar|
