@@ -24,11 +24,11 @@
     @PATCH_METHOD
     Scenario: Test PATCH method
       Given I have a Body Request
-      When I PATCH the endpoint
+      When I "PATCH" the endpoint
       Then I verify the response
 
     @DELETE_METHOD
     Scenario: Test DELETE method
       Given I have a Body Request
-      When I DELETE the endpoint
+      When I "DELETE" the endpoint
       Then I verify the response

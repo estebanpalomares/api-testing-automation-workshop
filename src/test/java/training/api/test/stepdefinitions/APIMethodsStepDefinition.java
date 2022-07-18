@@ -26,21 +26,7 @@ public class APIMethodsStepDefinition {
         Assert.assertTrue(this.bodyResponse.contains("Palomares"));
         Assert.assertTrue(this.bodyResponse.contains("34"));
     }
-
-    @When("I PATCH the endpoint")
-    public void iPATCHTheEndpoint() {
-        this.response = this.anythingController.usePATCHMethodOnAnythingURL(this.bodyExample);
-        this.response.then().statusCode(200);
-        this.bodyResponse = this.response.prettyPrint();
-    }
-
-    @When("I DELETE the endpoint")
-    public void iDELETETheEndpoint() {
-        this.response = this.anythingController.useDELETEMethodOnAnythingURL(this.bodyExample);
-        this.response.then().statusCode(200);
-        this.bodyResponse = this.response.prettyPrint();
-    }
-
+    
     @When("I {string} the endpoint")
     public void iTheEndpoint(String method) {
 
@@ -54,6 +40,12 @@ public class APIMethodsStepDefinition {
                 break;
             case "PUT":
                 this.response = this.anythingController.usePUTMethodOnAnythingURL(this.bodyExample);
+                break;
+            case "PATCH":
+                this.response = this.anythingController.usePATCHMethodOnAnythingURL(this.bodyExample);
+                break;
+            case "DELETE":
+                this.response = this.anythingController.useDELETEMethodOnAnythingURL(this.bodyExample);
                 break;
             default:
                 Assert.fail("The method: "+method+" does not exist.");
