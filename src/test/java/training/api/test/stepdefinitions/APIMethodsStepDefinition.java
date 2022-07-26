@@ -7,6 +7,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import training.api.test.controller.AnythingController;
 import training.api.test.model.BodyExample;
+import java.lang.*;
 
 public class APIMethodsStepDefinition {
 
