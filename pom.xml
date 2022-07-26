@@ -18,7 +18,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.4.0</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -57,6 +56,18 @@
             <version>2.9.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber5-jvm</artifactId>
+            <version>2.13.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>2.13.6</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -80,6 +91,25 @@
                             <version>1.18.24</version>
                         </path>
                     </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <configuration>
+                    <reportVersion>2.14.0</reportVersion>
+                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
                 </configuration>
             </plugin>
         </plugins>
